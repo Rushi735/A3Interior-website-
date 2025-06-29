@@ -1,0 +1,219 @@
+.portfolio-page {
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+}
+
+.portfolio-hero {
+  height: 70vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+              url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.hero-overlay {
+  color: white;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.hero-overlay h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hero-overlay p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.portfolio-controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.portfolio-controls button {
+  padding: 12px 25px;
+  border: none;
+  background: #f5f5f5;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.portfolio-controls button.active {
+  background: #2a2a2a;
+  color: white;
+}
+
+.portfolio-controls button:hover {
+  background: #ddd;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  padding: 0 40px;
+  margin-bottom: 60px;
+}
+
+.portfolio-card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.portfolio-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.portfolio-card:hover .image-overlay {
+  opacity: 1;
+}
+
+.zoom-icon {
+  color: white;
+  font-size: 2.5rem;
+}
+
+.card-content {
+  padding: 20px;
+  background: white;
+}
+
+.card-content h3 {
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.card-content p {
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.category-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.category-badge.residential {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.category-badge.commercial {
+  background: #e8f5e9;
+  color: #388e3c;
+}
+
+.portfolio-cta {
+  text-align: center;
+  padding: 80px 20px;
+  background: #f9f9f9;
+}
+
+.portfolio-cta h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.portfolio-cta p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button {
+  padding: 15px 35px;
+  background: #2a2a2a;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #444;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .portfolio-hero {
+    height: 50vh;
+  }
+  
+  .hero-overlay h1 {
+    font-size: 2.5rem;
+  }
+  
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+  
+  .portfolio-controls {
+    gap: 10px;
+  }
+  
+  .portfolio-controls button {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+}

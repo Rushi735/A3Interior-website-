@@ -1,0 +1,220 @@
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #f5f5f5;
+  --text-color: #333333;
+  --light-text: #ffffff;
+  --bg-color: #ffffff;
+  --dark-bg: #1A1A1A;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Navbar Container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 5%;
+  background-color: var(--bg-color);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.navbar.scrolled {
+  padding: 0.8rem 5%;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Logo */
+.navbar-logo a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: var(--transition);
+  letter-spacing: 1px;
+}
+
+/* Navbar Links */
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.navbar-links li a:hover {
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.navbar-links li a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--text-color);
+  transition: var(--transition);
+}
+
+.navbar-links li a:hover::after {
+  width: 100%;
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-icon {
+  margin-left: 6px;
+  transition: transform 0.3s ease;
+  font-size: 0.8rem;
+}
+
+.dropdown:hover .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--bg-color);
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+  padding: 0.5rem 0;
+  min-width: 180px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.5rem 1.2rem;
+  color: var(--text-color);
+  transition: var(--transition);
+  font-size: 0.9rem;
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+  padding-left: 1.5rem;
+}
+
+/* Consultation Button */
+.consultation-btn {
+  padding: 0.6rem 1.5rem;
+  background-color: var(--text-color);
+  color: var(--light-text);
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.consultation-btn:hover {
+  background-color: var(--text-color);
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+  
+  .navbar-links {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background-color: var(--bg-color);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    padding-top: 2rem;
+    transition: left 0.5s ease;
+  }
+
+  .navbar-links.active {
+    left: 0;
+  }
+
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    display: none;
+    width: 100%;
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: none;
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: block;
+    margin-top: 0.5rem;
+  }
+
+  .dropdown-menu a {
+    padding: 0.5rem 0;
+  }
+
+  .dropdown-menu a:hover {
+    padding-left: 0;
+    background-color: transparent;
+  }
+
+  .navbar-right {
+    display: none;
+  }
+
+  .navbar-mobile-toggle {
+    display: block;
+    font-size: 1.3rem;
+    color: var(--text-color);
+    cursor: pointer;
+    z-index: 1001;
+  }
+}
