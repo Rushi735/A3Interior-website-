@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +69,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+# A3Interior-website-
+A visually stunning and fully responsive Interior Design website showcasing services, project galleries, and client testimonials. Built with HTML, CSS, JavaScript, and Node.js backend.
+>>>>>>> 336e789a22e9e8628f9c72f983b96b1b93223639
