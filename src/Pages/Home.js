@@ -1,6 +1,13 @@
+// home.js
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import './Home.css';
+import architecturalDigest from '../Images/image1.avif';
+import elleDecor from '../Images/designer.jpg';
+import dwell from '../Images/photo-1483478550801-ceba5fe50e8e.avif';
+import houseBeautiful from '../Images/photo-1518770660439-4636190af475.avif';
+import nyTimes from '../Images/photo-1527689368864-3a821dbccc34.avif';
+
 
 export default function Home() {
   useEffect(() => {
@@ -26,196 +33,234 @@ export default function Home() {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content animate fade-in">
-          <h1>Transform Your Space With Timeless Design</h1>
-          <p className="subtitle">
-            Luxe Interiors creates bespoke residential and commercial spaces that blend 
-            functionality with extraordinary aesthetics. Serving clients since 2010.
+          <h1 className="serif-display">Crafting Timeless Interiors with Purpose</h1>
+          <p className="subtitle sans-serif">
+            Since 2010, Luxe Interiors has transformed over 300 spaces worldwide, blending
+            functionality with extraordinary aesthetics to create environments that inspire.
           </p>
+          <div className="stats-grid">
+            <div className="stat-item">
+              <div className="stat-number">300+</div>
+              <div className="stat-label">Projects Completed</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">15+</div>
+              <div className="stat-label">Years Experience</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">50+</div>
+              <div className="stat-label">Industry Awards</div>
+            </div>
+          </div>
           <div className="hero-buttons">
             <Link to="/portfolio" className="cta-button primary">
-              View Our Work
+              <span>Explore Our Portfolio</span>
             </Link>
             <Link to="/contact" className="cta-button secondary">
-              Free Consultation
+              <span>Book a Consultation</span>
             </Link>
           </div>
         </div>
         <div className="hero-image animate slide-up">
-          <img 
-            src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace" 
-            alt="Luxury living room design" 
+          <img
+            src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace"
+            alt="Luxury living room design"
+            loading="lazy"
           />
+          <div className="image-caption sans-serif-small">Manhattan Penthouse, 2023</div>
         </div>
       </section>
 
       {/* Featured In Section */}
       <section className="featured-in">
-        <p>Featured in:</p>
-        <div className="logos">
-          <img src="/logos/archdigest.png" alt="Architectural Digest" />
-          <img src="/logos/elle-decor.png" alt="Elle Decor" />
-          <img src="/logos/dwell.png" alt="Dwell" />
-          <img src="/logos/house-beautiful.png" alt="House Beautiful" />
+        <p className="sans-serif-small">RECOGNIZED BY LEADING PUBLICATIONS</p>
+       <div className="logos">
+  <img 
+    src={architecturalDigest} 
+    alt="Architectural Digest" 
+    loading="lazy"
+    className="publication-logo"
+    style={{ width: '160px', height: '100' }}
+  />
+  <img 
+    src={elleDecor} 
+    alt="Elle Decor" 
+    loading="lazy"
+    className="publication-logo"
+    style={{ width: '120px', height: 'auto' }}
+  />
+  <img 
+    src={dwell} 
+    alt="Dwell" 
+    loading="lazy"
+    className="publication-logo"
+    style={{ width: '100px', height: 'auto' }}
+  />
+  <img 
+    src={houseBeautiful} 
+    alt="House Beautiful" 
+    loading="lazy"
+    className="publication-logo"
+    style={{ width: '180px', height: 'auto' }}
+  />
+  <img 
+    src={nyTimes} 
+    alt="New York Times" 
+    loading="lazy"
+    className="publication-logo"
+    style={{ width: '140px', height: 'auto' }}
+  />
+</div>
+      </section>
+
+      {/* Signature Projects Section */}
+      <section className="projects-section">
+        <div className="section-header">
+          <h2 className="serif-heading">Our Signature Projects</h2>
+          <p className="sans-serif">Spaces that define our design philosophy</p>
+        </div>
+        <div className="projects-grid">
+          <div className="project-card animate fade-in">
+            <div className="project-image">
+              <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab" alt="Modern penthouse" loading="lazy" />
+            </div>
+            <div className="project-info">
+              <h3 className="serif-subheading">The Hudson Residence</h3>
+              <div className="project-meta sans-serif-small">
+                <span>New York, NY</span>
+                <span>•</span>
+                <span>3,200 sq ft</span>
+                <span>•</span>
+                <span>Residential</span>
+              </div>
+              <p className="sans-serif">A complete transformation of a Tribeca loft with custom millwork and curated art collection integration.</p>
+            </div>
+          </div>
+          <div className="project-card animate fade-in">
+            <div className="project-image">
+              <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb" alt="Contemporary office" loading="lazy" />
+            </div>
+            <div className="project-info">
+              <h3 className="serif-subheading">Venture Capital Headquarters</h3>
+              <div className="project-meta sans-serif-small">
+                <span>San Francisco, CA</span>
+                <span>•</span>
+                <span>12,000 sq ft</span>
+                <span>•</span>
+                <span>Commercial</span>
+              </div>
+              <p className="sans-serif">Biophilic design elements combined with cutting-edge technology for a forward-thinking workspace.</p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* About Section */}
       <section className="about-section">
         <div className="about-image animate slide-up">
-          <img 
-            src="https://images.unsplash.com/photo-1617806118233-18e1de247200" 
-            alt="Our design team at work" 
+          <div className="image-overlay"></div>
+          <img
+            src="https://images.unsplash.com/photo-1617806118233-18e1de247200"
+            alt="Our design team at work"
+            loading="lazy"
           />
+          <div className="experience-badge">
+            <div className="years">15</div>
+            <div className="label">Years of Excellence</div>
+          </div>
         </div>
         <div className="about-content animate fade-in">
-          <h2>Our Design Philosophy</h2>
-          <p>
-            At Luxe Interiors, we believe that exceptional spaces tell stories. Our approach combines:
+          <h2 className="serif-heading">Design Philosophy</h2>
+          <p className="sans-serif">
+            We believe interiors should tell your story while standing the test of time. Our approach combines:
           </p>
-          <ul className="design-principles">
+          <ul className="design-principles sans-serif">
             <li>
-              <strong>Holistic Vision</strong> - We consider architecture, lighting, and furnishings as interconnected elements
+              <span className="principle-title">Contextual Design</span>
+              <span className="principle-desc">Architecture that responds to its environment and cultural context</span>
             </li>
             <li>
-              <strong>Client-Centric Process</strong> - Your lifestyle and preferences guide every decision
+              <span className="principle-title">Material Honesty</span>
+              <span className="principle-desc">Natural materials celebrated in their authentic form</span>
             </li>
             <li>
-              <strong>Sustainable Luxury</strong> - We source eco-friendly materials without compromising on quality
+              <span className="principle-title">Sensory Experience</span>
+              <span className="principle-desc">Spaces designed for all senses - sight, sound, touch</span>
             </li>
           </ul>
-          <Link to="/about" className="learn-more">
-            Learn more about our approach →
-          </Link>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="services-section">
-        <div className="section-header animate fade-in">
-          <h2>Our Comprehensive Services</h2>
-          <p>From concept to completion, we handle every detail</p>
-        </div>
-        <div className="services-grid">
-          <div className="service-card animate slide-up">
-            <div className="service-icon">🛋️</div>
-            <h3>Residential Design</h3>
-            <p>
-              Complete home transformations including living spaces, kitchens, 
-              bedrooms, and custom home offices. We specialize in creating 
-              functional yet beautiful living environments.
-            </p>
-            <Link to="/services/residential" className="service-link">
-              View residential projects →
-            </Link>
-          </div>
-          <div className="service-card animate slide-up">
-            <div className="service-icon">🏢</div>
-            <h3>Commercial Spaces</h3>
-            <p>
-              Office designs that boost productivity and reflect your brand identity. 
-              We create welcoming lobbies, collaborative workspaces, and executive 
-              suites that impress clients and employees alike.
-            </p>
-            <Link to="/services/commercial" className="service-link">
-              View commercial projects →
-            </Link>
-          </div>
-          <div className="service-card animate slide-up">
-            <div className="service-icon">🏨</div>
-            <h3>Hospitality Design</h3>
-            <p>
-              Hotel, restaurant, and retail spaces designed to enhance guest 
-              experiences. Our hospitality designs balance aesthetic appeal with 
-              operational efficiency.
-            </p>
-            <Link to="/services/hospitality" className="service-link">
-              View hospitality projects →
-            </Link>
+          <div className="signature">
+            <img src="/signature.png" alt="Founder Signature" loading="lazy" />
+            <div className="signature-info sans-serif-small">
+              <div>Sarah Williamson</div>
+              <div>Founder & Principal Designer</div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Portfolio Showcase */}
-      <section className="portfolio-section">
+      {/* Process Section */}
+      <section className="process-section">
         <div className="section-header animate fade-in">
-          <h2>Recent Projects</h2>
-          <p>Explore our latest design transformations</p>
+          <h2 className="serif-heading">Our Design Process</h2>
+          <p className="sans-serif">A collaborative journey to exceptional spaces</p>
         </div>
-        <div className="portfolio-grid">
-          <div className="portfolio-item animate fade-in">
-            <img 
-              src="https://images.unsplash.com/photo-1600121848594-d8644e57abab" 
-              alt="Modern penthouse design" 
-            />
-            <div className="portfolio-overlay">
-              <h3>Urban Skyline Penthouse</h3>
-              <p>New York, NY</p>
-              <Link to="/portfolio/urban-penthouse" className="view-project">
-                View Project
-              </Link>
-            </div>
+        <div className="process-steps">
+          <div className="process-step animate slide-up">
+            <div className="step-number">01</div>
+            <h3 className="serif-subheading">Discovery</h3>
+            <p className="sans-serif">Deep dive into your lifestyle, needs, and aspirations through detailed consultations.</p>
           </div>
-          <div className="portfolio-item animate fade-in">
-            <img 
-              src="https://images.unsplash.com/photo-1493809842364-78817add7ffb" 
-              alt="Contemporary office design" 
-            />
-            <div className="portfolio-overlay">
-              <h3>Tech Startup Headquarters</h3>
-              <p>San Francisco, CA</p>
-              <Link to="/portfolio/tech-hq" className="view-project">
-                View Project
-              </Link>
-            </div>
+          <div className="process-step animate slide-up">
+            <div className="step-number">02</div>
+            <h3 className="serif-subheading">Concept Development</h3>
+            <p className="sans-serif">Creation of mood boards, material palettes, and preliminary space planning.</p>
           </div>
-          <div className="portfolio-item animate fade-in">
-            <img 
-              src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a" 
-              alt="Luxury hotel lobby" 
-            />
-            <div className="portfolio-overlay">
-              <h3>Coastal Resort Lobby</h3>
-              <p>Miami, FL</p>
-              <Link to="/portfolio/coastal-resort" className="view-project">
-                View Project
-              </Link>
-            </div>
+          <div className="process-step animate slide-up">
+            <div className="step-number">03</div>
+            <h3 className="serif-subheading">Design Refinement</h3>
+            <p className="sans-serif">Detailed drawings, 3D visualizations, and specification of all design elements.</p>
           </div>
-        </div>
-        <div className="view-all animate fade-in">
-          <Link to="/portfolio" className="cta-button">
-            View Full Portfolio
-          </Link>
+          <div className="process-step animate slide-up">
+            <div className="step-number">04</div>
+            <h3 className="serif-subheading">Execution</h3>
+            <p className="sans-serif">Project management from procurement through final installation.</p>
+          </div>
         </div>
       </section>
 
       {/* Testimonials */}
       <section className="testimonials-section">
         <div className="section-header animate fade-in">
-          <h2>Client Testimonials</h2>
-          <p>Hear what our clients say about working with us</p>
+          <h2 className="serif-heading">Client Experiences</h2>
+          <p className="sans-serif">The stories behind our collaborations</p>
         </div>
         <div className="testimonials-grid">
           <div className="testimonial-card animate slide-up">
-            <div className="testimonial-content">
-              "Luxe Interiors completely transformed our Manhattan apartment. 
-              They listened to our needs and delivered beyond our expectations. 
-              The space is both beautiful and incredibly functional for our family."
+            <div className="testimonial-content serif-italic">
+              "Working with Luxe Interiors was transformative. They took our vague ideas and created a home that perfectly captures who we are while introducing us to design possibilities we never imagined."
             </div>
             <div className="client-info">
-              <div className="client-name">The Rodriguez Family</div>
-              <div className="project-type">Upper East Side Residence</div>
+              <div className="client-image">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" loading="lazy" />
+              </div>
+              <div className="client-details sans-serif-small">
+                <div className="client-name">The Rodriguez Family</div>
+                <div className="project-type">Upper East Side Residence</div>
+              </div>
             </div>
           </div>
           <div className="testimonial-card animate slide-up">
-            <div className="testimonial-content">
-              "Our new office design has received countless compliments. The team 
-              understood our brand perfectly and created a space that inspires 
-              creativity while improving workflow efficiency."
+            <div className="testimonial-content serif-italic">
+              "The new office has become our best recruitment tool. Candidates walk in and immediately want to work here. The design perfectly balances professionalism with creative energy."
             </div>
             <div className="client-info">
-              <div className="client-name">Sarah Chen, CEO</div>
-              <div className="project-type">Innovatech Office Design</div>
+              <div className="client-image">
+                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client" loading="lazy" />
+              </div>
+              <div className="client-details sans-serif-small">
+                <div className="client-name">Sarah Chen</div>
+                <div className="project-type">Innovatech Office Design</div>
+              </div>
             </div>
           </div>
         </div>
@@ -224,14 +269,19 @@ export default function Home() {
       {/* CTA Section */}
       <section className="cta-section">
         <div className="cta-content animate fade-in">
-          <h2>Ready to Transform Your Space?</h2>
-          <p>
-            Schedule a complimentary consultation with our design team. Let's discuss 
-            your vision and how we can bring it to life.
+          <h2 className="serif-display">Ready to Begin Your Design Journey?</h2>
+          <p className="sans-serif">
+            Schedule a complimentary 30-minute consultation with our design team. Let's discuss your vision and how we can bring it to life.
           </p>
-          <Link to="/contact" className="cta-button primary large">
-            Get Started Today
-          </Link>
+          <div className="cta-actions">
+            <Link to="/contact" className="cta-button primary large">
+              <span>Get Started</span>
+            </Link>
+            <div className="cta-contact sans-serif-small">
+              <div>Or call us directly</div>
+              <div className="phone-number">+1 (555) 123-4567</div>
+            </div>
+          </div>
         </div>
       </section>
     </div>

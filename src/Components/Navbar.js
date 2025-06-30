@@ -32,7 +32,7 @@ function Navbar() {
     { label: "Home", path: "/" },
     { label: "Portfolio", path: "/portfolio" },
     { label: "About", path: "/about" },
-    { label: "Journal", path: "/journal" },
+    { label: "Services", path: "/Services" },
     { label: "Contact", path: "/contact" }
   ];
 
@@ -40,7 +40,7 @@ function Navbar() {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <div className="navbar-logo">
-          <a href="/">Interior Studio</a>
+          <a href="/">VM_Interior_Studio</a>
         </div>
 
         <ul className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>

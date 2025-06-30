@@ -1,99 +1,241 @@
-import React from 'react';
-// import { Helmet } from 'react-helmet-async';
-import '../Pages/Contact.css';
-import officeImg from '../Images/photo-1471107340929-a87cd0f5b5f3.avif'; // Example office image
+import React, { useState } from 'react';
+import designStudioImage from '../Images/image1.avif';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
+import { MdDesignServices } from 'react-icons/md';
+import axios from 'axios';
+import './Contact.css';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await axios.post('http://localhost:5000/api/contact', formData, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (response.data.success) {
+        setSubmitStatus('success');
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: ''
+        });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Submission error:', error.response?.data || error.message);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // Service display names for confirmation message
+  const getServiceDisplayName = (service) => {
+    const serviceNames = {
+      residential: 'Residential Design',
+      commercial: 'Commercial Design',
+      hospitality: 'Hospitality Design',
+      consultation: 'Design Consultation'
+    };
+    return serviceNames[service] || 'design service';
+  };
+
   return (
-    <>
-      {/* <Helmet>
-        <title>Contact | Signature Interiors</title>
-        <meta name="description" content="Get in touch with our design team" />
-      </Helmet> */}
-
-      <div className="contact-hero">
-        <div className="hero-content">
-          <h1>Let's Create Together</h1>
-          <p>We're ready to transform your space into something extraordinary</p>
+    <div className="contact-page-container">
+      {/* Hero Section */}
+      <div className="contact-hero-section">
+        <div className="contact-hero-content">
+          <h1>Let's Create Something Beautiful</h1>
+          <p>Our design team is ready to bring your vision to life</p>
         </div>
       </div>
 
-      <div className="contact-container">
-        <div className="contact-info-section">
-          <div className="info-card">
-            <div className="icon-circle">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
-                <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
-              </svg>
-            </div>
-            <h3>Email Us</h3>
-            <p>design@signatureinteriors.com</p>
-            <p>response within 24 hours</p>
+      {/* Contact Cards */}
+      <div className="contact-cards-wrapper">
+        <div className="contact-info-card">
+          <div className="contact-card-icon">
+            <FaEnvelope />
           </div>
-
-          <div className="info-card">
-            <div className="icon-circle">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path fillRule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clipRule="evenodd" />
-              </svg>
-            </div>
-            <h3>Call Us</h3>
-            <p>+1 (555) 123-4567</p>
-            <p>Mon-Fri, 9am-5pm EST</p>
-          </div>
-
-          <div className="info-card">
-            <div className="icon-circle">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path fillRule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
-              </svg>
-            </div>
-            <h3>Visit Us</h3>
-            <p>123 Design Avenue</p>
-            <p>New York, NY 10001</p>
-          </div>
+          <h3>Email Us</h3>
+          <p>design@signatureinteriors.com</p>
+          <span>Response within 24 hours</span>
         </div>
 
-        <div className="contact-form-section">
-          <div className="form-image">
-            <img src={officeImg} alt="Our design studio" />
+        <div className="contact-info-card">
+          <div className="contact-card-icon">
+            <FaPhone />
           </div>
-          <div className="form-container">
-            <h2>Start Your Project</h2>
-            <form className="contact-form">
-              <div className="form-group">
-                <label htmlFor="name">Full Name</label>
-                <input type="text" id="name" placeholder="John Smith" required />
-              </div>
-              <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" placeholder="john@example.com" required />
-              </div>
-              <div className="form-group">
-                <label htmlFor="phone">Phone (Optional)</label>
-                <input type="tel" id="phone" placeholder="+1 (___) ___-____" />
-              </div>
-              <div className="form-group">
-                <label htmlFor="service">Service Needed</label>
-                <select id="service">
-                  <option value="">Select a service</option>
-                  <option value="residential">Residential Design</option>
-                  <option value="commercial">Commercial Design</option>
-                  <option value="hospitality">Hospitality Design</option>
-                  <option value="consultation">Consultation</option>
-                </select>
-              </div>
-              <div className="form-group">
-                <label htmlFor="message">Project Details</label>
-                <textarea id="message" rows="5" placeholder="Tell us about your project..."></textarea>
-              </div>
-              <button type="submit" className="submit-btn">Submit Request</button>
-            </form>
+          <h3>Call Us</h3>
+          <p>+1 (555) 123-4567</p>
+          <span>Mon-Fri, 9am-5pm EST</span>
+        </div>
+
+        <div className="contact-info-card">
+          <div className="contact-card-icon">
+            <FaMapMarkerAlt />
           </div>
+          <h3>Visit Us</h3>
+          <p>123 Design Avenue</p>
+          <p>New York, NY 10001</p>
         </div>
       </div>
-    </>
+
+      {/* Contact Form Section */}
+      {/* Contact Form Section */}
+      <div className="contact-form-wrapper">
+        <div className="contact-form-image">
+          <img
+            src={designStudioImage}
+            alt="Our design studio"
+            loading="lazy"
+          />
+          <div className="image-overlay-text">
+            <h3>Our Design Studio</h3>
+            <p>Schedule a visit to discuss your project in person</p>
+          </div>
+        </div>
+
+
+        <div className="contact-form-content">
+          <div className="form-header-section">
+            <MdDesignServices className="form-title-icon" />
+            <h2>Start Your Design Journey</h2>
+            <p>Fill out the form below and we'll get back to you shortly</p>
+          </div>
+
+          {submitStatus === 'success' && (
+            <div className="form-success-message">
+              <h3>Thank you, {formData.firstName}!</h3>
+              <p>We've received your {getServiceDisplayName(formData.service)} inquiry.</p>
+              <p>Check your email for a confirmation and next steps.</p>
+            </div>
+          )}
+          {submitStatus === 'error' && (
+            <div className="form-error-message">
+              <h3>Something went wrong</h3>
+              <p>Please try again later or contact us directly.</p>
+            </div>
+          )}
+
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="firstName">First Name*</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="lastName">Last Name*</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="email">Email Address*</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="phone">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="service">Service Interest*</label>
+              <select
+                id="service"
+                name="service"
+                value={formData.service}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select a service</option>
+                <option value="residential">Residential Design</option>
+                <option value="commercial">Commercial Design</option>
+                <option value="hospitality">Hospitality Design</option>
+                <option value="consultation">Design Consultation</option>
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="message">Project Details*</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                value={formData.message}
+                onChange={handleChange}
+                required
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              className="submit-form-button"
+              disabled={isSubmitting}
+            >
+              <FaPaperPlane className="button-icon" />
+              {isSubmitting ? 'Sending...' : 'Send Message'}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 };
 

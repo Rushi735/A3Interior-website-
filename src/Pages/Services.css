@@ -1,11 +1,12 @@
 .services-page {
-  font-family: 'Montserrat', sans-serif;
-  color: #333;
+  font-family: 'Poppins', sans-serif;
+  color: #2d3436;
+  overflow-x: hidden;
 }
 
 .services-hero {
-  height: 70vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+  height: 80vh;
+  background: linear-gradient(135deg, rgba(45, 52, 54, 0.85), rgba(85, 239, 196, 0.2)), 
               url('https://images.unsplash.com/photo-1600121848594-d8644e57abab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
   background-size: cover;
   background-position: center;
@@ -13,244 +14,391 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
+  position: relative;
 }
 
 .hero-overlay {
   color: white;
   max-width: 800px;
   padding: 0 20px;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-overlay h1 {
-  font-size: 3.5rem;
+  font-size: 4rem;
   margin-bottom: 20px;
   font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 1s ease;
 }
 
 .hero-overlay p {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin-bottom: 30px;
+  font-weight: 300;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 1s ease 0.2s both;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
 }
 
 .section-title {
-  text-align: center;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin-bottom: 15px;
   font-weight: 700;
+  color: #2d3436;
+  position: relative;
+  display: inline-block;
+}
+
+.title-accent {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #55efc4, #00cec9);
+  margin: 0 auto;
+  border-radius: 2px;
 }
 
 .section-subtitle {
-  text-align: center;
-  color: #666;
+  color: #636e72;
   max-width: 700px;
-  margin: 0 auto 50px;
-  font-size: 1.1rem;
+  margin: 15px auto 0;
+  font-size: 1.2rem;
   line-height: 1.6;
+  font-weight: 400;
 }
 
 .services-section {
-  padding: 60px 40px;
+  padding: 100px 40px;
+  background-color: #f9f9f9;
 }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 40px;
-  margin-top: 40px;
+  gap: 50px;
+  margin-top: 60px;
 }
 
 .service-card {
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+  background: white;
 }
 
 .service-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
 }
 
 .service-image {
-  height: 250px;
+  height: 280px;
   position: relative;
+  overflow: hidden;
 }
 
 .service-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.service-card:hover .service-image img {
+  transform: scale(1.05);
 }
 
 .service-icon-container {
   position: absolute;
   bottom: -25px;
   right: 25px;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   background: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon-container {
+  background: #00cec9;
+  transform: rotate(15deg);
 }
 
 .service-icon {
-  font-size: 1.8rem;
-  color: #2a2a2a;
+  font-size: 2rem;
+  color: #2d3436;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  color: white;
 }
 
 .service-content {
-  padding: 40px 25px 25px;
+  padding: 50px 30px 30px;
   background: white;
+  position: relative;
 }
 
 .service-content h3 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin-bottom: 15px;
+  color: #2d3436;
+  font-weight: 600;
 }
 
 .service-description {
-  color: #666;
-  margin-bottom: 20px;
-  line-height: 1.6;
+  color: #636e72;
+  margin-bottom: 25px;
+  line-height: 1.7;
+  font-size: 1rem;
 }
 
 .service-features {
-  margin-bottom: 25px;
-  padding-left: 20px;
+  margin-bottom: 30px;
+  padding-left: 0;
 }
 
 .service-features li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   position: relative;
   list-style-type: none;
+  color: #2d3436;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: flex-start;
 }
 
-.service-features li:before {
-  content: "•";
-  color: #2a2a2a;
+.feature-bullet {
+  color: #00cec9;
+  margin-right: 10px;
   font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
+  flex-shrink: 0;
 }
 
 .service-button {
-  padding: 12px 25px;
-  background: #2a2a2a;
+  padding: 14px 30px;
+  background: linear-gradient(90deg, #55efc4, #00cec9);
   color: white;
   border: none;
-  border-radius: 30px;
+  border-radius: 50px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(85, 239, 196, 0.3);
 }
 
 .service-button:hover {
-  background: #444;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(85, 239, 196, 0.4);
 }
 
 .process-section {
-  padding: 80px 40px;
-  background: #f9f9f9;
+  padding: 120px 40px;
+  background: linear-gradient(135deg, #f9f9f9, #f1f1f1);
+  position: relative;
 }
 
 .process-steps {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
+  gap: 40px;
+  margin-top: 70px;
+  position: relative;
+  z-index: 2;
 }
 
 .process-card {
   background: white;
-  padding: 40px 25px;
-  border-radius: 10px;
+  padding: 50px 30px;
+  border-radius: 12px;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .process-card:hover {
   transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.process-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #55efc4, #00cec9);
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.process-card:hover::before {
+  opacity: 1;
 }
 
 .process-icon-circle {
-  width: 80px;
-  height: 80px;
-  background: #f0f0f0;
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 25px;
+  margin: 0 auto 30px;
+  transition: all 0.3s ease;
+}
+
+.process-card:hover .process-icon-circle {
+  background: linear-gradient(135deg, #55efc4, #00cec9);
+  transform: scale(1.1);
 }
 
 .process-icon {
-  font-size: 2rem;
-  color: #2a2a2a;
+  font-size: 2.2rem;
+  color: #2d3436;
+  transition: all 0.3s ease;
+}
+
+.process-card:hover .process-icon {
+  color: white;
 }
 
 .process-card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 15px;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #2d3436;
+  font-weight: 600;
 }
 
 .process-card p {
-  color: #666;
-  line-height: 1.6;
+  color: #636e72;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.step-number {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 3rem;
+  font-weight: 800;
+  color: rgba(45, 52, 54, 0.05);
+  transition: all 0.3s ease;
+}
+
+.process-card:hover .step-number {
+  color: rgba(85, 239, 196, 0.1);
 }
 
 .services-cta {
   text-align: center;
-  padding: 80px 20px;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+  padding: 120px 20px;
+  background: linear-gradient(135deg, rgba(45, 52, 54, 0.9), rgba(45, 52, 54, 0.95)), 
               url('https://images.unsplash.com/photo-1600566752229-250ed79470a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
   background-size: cover;
   background-position: center;
   color: white;
+  position: relative;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .services-cta h2 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin-bottom: 20px;
+  font-weight: 700;
 }
 
 .services-cta p {
-  font-size: 1.1rem;
-  margin-bottom: 30px;
+  font-size: 1.2rem;
+  margin-bottom: 40px;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  font-weight: 300;
+  line-height: 1.7;
 }
 
 .cta-button {
-  padding: 15px 35px;
-  background: white;
-  color: #2a2a2a;
+  padding: 16px 40px;
+  background: linear-gradient(90deg, #55efc4, #00cec9);
+  color: #2d3436;
   border: none;
-  border-radius: 30px;
+  border-radius: 50px;
   font-weight: 600;
   font-size: 1.1rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(85, 239, 196, 0.3);
 }
 
 .cta-button:hover {
-  background: #f0f0f0;
-  transform: translateY(-3px);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(85, 239, 196, 0.4);
+  color: white;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive Design */
+@media (max-width: 992px) {
+  .hero-overlay h1 {
+    font-size: 3.2rem;
+  }
+  
+  .section-title {
+    font-size: 2.4rem;
+  }
+}
+
 @media (max-width: 768px) {
   .services-hero {
-    height: 50vh;
+    height: 60vh;
   }
   
   .hero-overlay h1 {
     font-size: 2.5rem;
+  }
+  
+  .hero-overlay p {
+    font-size: 1.1rem;
   }
   
   .services-grid {
@@ -258,10 +406,28 @@
   }
   
   .services-section, .process-section {
-    padding: 40px 20px;
+    padding: 60px 20px;
   }
   
   .section-title {
     font-size: 2rem;
+  }
+  
+  .services-cta h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .services-hero {
+    height: 50vh;
+  }
+  
+  .hero-overlay h1 {
+    font-size: 2rem;
+  }
+  
+  .process-steps {
+    grid-template-columns: 1fr;
   }
 }

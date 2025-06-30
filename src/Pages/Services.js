@@ -1,5 +1,7 @@
 import React from 'react';
-import { FaPalette, FaHome, FaBuilding, FaRulerCombined, FaLightbulb, FaHandshake } from 'react-icons/fa';
+import { FaPalette, FaHome, FaBuilding,  FaHandshake } from 'react-icons/fa';
+import { GiMaterialsScience } from 'react-icons/gi';
+import { MdColorLens, MdOutlineDesignServices } from 'react-icons/md';
 import './Services.css';
 
 const Services = () => {
@@ -58,19 +60,19 @@ const Services = () => {
     {
       id: 2,
       title: 'Concept Development',
-      icon: <FaLightbulb className="process-icon" />,
+      icon: <MdOutlineDesignServices className="process-icon" />,
       description: 'Our team creates initial design concepts tailored to your requirements.'
     },
     {
       id: 3,
       title: 'Design Refinement',
-      icon: <FaPalette className="process-icon" />,
+      icon: <MdColorLens className="process-icon" />,
       description: 'We refine the design based on your feedback and selections.'
     },
     {
       id: 4,
       title: 'Implementation',
-      icon: <FaRulerCombined className="process-icon" />,
+      icon: <GiMaterialsScience className="process-icon" />,
       description: 'We oversee the execution to ensure flawless realization of the design.'
     }
   ];
@@ -81,14 +83,17 @@ const Services = () => {
       <div className="services-hero">
         <div className="hero-overlay">
           <h1>Our Design Services</h1>
-          <p>Comprehensive solutions tailored to your unique needs and aspirations</p>
+          <p>Where creativity meets functionality to transform your spaces</p>
         </div>
       </div>
 
       {/* Services Section */}
       <div className="services-section">
-        <h2 className="section-title">What We Offer</h2>
-        <p className="section-subtitle">From concept to completion, we deliver exceptional interior design solutions</p>
+        <div className="section-header">
+          <h2 className="section-title">What We Offer</h2>
+          <p className="section-subtitle">Tailored design solutions that bring your vision to life</p>
+          <div className="title-accent"></div>
+        </div>
         
         <div className="services-grid">
           {services.map((service) => (
@@ -104,10 +109,12 @@ const Services = () => {
                 <p className="service-description">{service.description}</p>
                 <ul className="service-features">
                   {service.features.map((feature, index) => (
-                    <li key={index}>{feature}</li>
+                    <li key={index}>
+                      <span className="feature-bullet">→</span> {feature}
+                    </li>
                   ))}
                 </ul>
-                <button className="service-button">Learn More</button>
+                <button className="service-button">Explore Service</button>
               </div>
             </div>
           ))}
@@ -116,8 +123,11 @@ const Services = () => {
 
       {/* Process Section */}
       <div className="process-section">
-        <h2 className="section-title">Our Design Process</h2>
-        <p className="section-subtitle">A structured approach to ensure your vision becomes reality</p>
+        <div className="section-header">
+          <h2 className="section-title">Our Design Process</h2>
+          <p className="section-subtitle">A seamless journey from concept to completion</p>
+          <div className="title-accent"></div>
+        </div>
         
         <div className="process-steps">
           {processSteps.map((step) => (
@@ -127,6 +137,7 @@ const Services = () => {
               </div>
               <h3>{step.title}</h3>
               <p>{step.description}</p>
+              <div className="step-number">{step.id}</div>
             </div>
           ))}
         </div>
@@ -134,9 +145,11 @@ const Services = () => {
 
       {/* CTA Section */}
       <div className="services-cta">
-        <h2>Ready to Transform Your Space?</h2>
-        <p>Contact us today to schedule a consultation with our design team</p>
-        <button className="cta-button">Get Started</button>
+        <div className="cta-content">
+          <h2>Ready to Begin Your Design Journey?</h2>
+          <p>Let's collaborate to create spaces that inspire and elevate your lifestyle</p>
+          <button className="cta-button">Schedule Consultation</button>
+        </div>
       </div>
     </div>
   );
