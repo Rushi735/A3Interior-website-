@@ -40,7 +40,7 @@ function Navbar() {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <div className="navbar-logo">
-          <a href="/">VM_Interior_Studio</a>
+          <a href="/">A3Interior_Studio</a>
         </div>
 
         <ul className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
