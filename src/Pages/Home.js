@@ -279,7 +279,7 @@ export default function Home() {
             </Link>
             <div className="cta-contact sans-serif-small">
               <div>Or call us directly</div>
-              <div className="phone-number">+1 (555) 123-4567</div>
+              <div className="phone-number">8010825179</div>
             </div>
           </div>
         </div>
