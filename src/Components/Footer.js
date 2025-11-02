@@ -62,19 +62,19 @@ const Footer = () => {
                 <svg viewBox="0 0 24 24" className="contact-icon">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                 </svg>
-                <p>123 Design Avenue, New York, NY 10001</p>
+                <p>Sinhagad college  pune vadagaon</p>
               </div>
               <div className="contact-item">
                 <svg viewBox="0 0 24 24" className="contact-icon">
                   <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                 </svg>
-                <p><a href="mailto:hello@signature.com">hello@signature.com</a></p>
+                <p><a href="mailto:hello@signature.com">pawarrushikesh735@gmail.com</a></p>
               </div>
               <div className="contact-item">
                 <svg viewBox="0 0 24 24" className="contact-icon">
                   <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-.96.26l-1.57 2.08c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
                 </svg>
-                <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+                <p><a href="tel:+15551234567">8010825179</a></p>
               </div>
             </address>
           </div>
